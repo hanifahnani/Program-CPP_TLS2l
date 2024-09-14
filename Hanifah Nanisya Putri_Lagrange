@@ -1,0 +1,45 @@
+#include <iostream>    // untuk input/output
+#include <iomanip>     // untuk format output desimal
+#include <cmath>       // untuk operasi matematika tambahan
+
+using namespace std;
+
+int main() {
+    double angka1, angka2, hasil;
+    char operasi;
+    
+    // Meminta input dari pengguna
+    cout << "Masukkan angka pertama: ";
+    cin >> angka1;
+    
+    cout << "Masukkan angka kedua: ";
+    cin >> angka2;
+    
+    cout << "Masukkan operasi yang ingin dilakukan (+, -, *, /): ";
+    cin >> operasi;
+    
+    // Menggunakan conditional statement (if-else) untuk melakukan operasi aritmatika
+    if (operasi == '+') {
+        hasil = angka1 + angka2;
+    } else if (operasi == '-') {
+        hasil = angka1 - angka2;
+    } else if (operasi == '*') {
+        hasil = angka1 * angka2;
+    } else if (operasi == '/') {
+        if (angka2 != 0) {
+            hasil = angka1 / angka2;
+        } else {
+            cout << "Error: Tidak dapat membagi dengan nol!" << endl;
+            return 1; // Menghentikan program karena error
+        }
+    } else {
+        cout << "Operasi tidak valid!" << endl;
+        return 1; // Keluar karena input operasi tidak valid
+    }
+    
+    // Menampilkan hasil dengan format 2 angka desimal
+    cout << fixed << setprecision(2);
+    cout << "Hasil dari " << angka1 << " " << operasi << " " << angka2 << " = " << hasil << endl;
+    
+    return 0;
+}
